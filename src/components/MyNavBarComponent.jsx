@@ -15,6 +15,9 @@ export function MyNavBarComponent() {
           <li>
             <Link to="contactUs">contact Us</Link>
           </li>
+          <li>
+            <Link to="/tp4-react">tp4-react</Link>
+          </li>
         </ul>
       </nav>
     </div>
