@@ -22,6 +22,7 @@ export function App() {
       <main>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/movies" element={<LandingPage />} />
           <Route path="/tp4-react" element={<LandingPage />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<h4>contactUs</h4>} />
@@ -29,7 +30,7 @@ export function App() {
 
           {/* 👇usamos el componente */}
           {/* al path le pasamos un parametro (:movieId) que es dinámico 
-                y lo capturamos en MovieDetails*/}
+               y lo capturamos en MovieDetails*/}
           <Route path="/movies/:movieId" element={<MovieDetails />} />
         </Routes>
       </main>
