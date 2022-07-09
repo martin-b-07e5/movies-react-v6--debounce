@@ -1,4 +1,5 @@
 // https://reactrouter.com/docs/en/v6/getting-started/installation#create-react-app
+// https://reactrouter.com/docs/en/v6/getting-started/overview#configuring-routes
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // 👇importamos css y componentes.
