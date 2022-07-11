@@ -27,7 +27,7 @@ export function MoviesGrid() {
 
   useEffect(() => {
     get("/discover/movie").then((data) => {
-      setMovies(data.result);
+      setMovies(data.results);
     });
   }, []);
   return (
