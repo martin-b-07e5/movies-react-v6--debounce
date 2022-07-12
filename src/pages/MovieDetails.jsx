@@ -1,8 +1,9 @@
+import styles from "./MovieDetails.module.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // esto es un hook
 import { get } from "../utils/httpClient";
-import styles from "./MovieDetails.module.css";
 import { Spinner } from "../components/Spinner";
+// import { useQuery } from "../hooks/useQuery";
 
 // componente para mostrar detalles de la película.
 export function MovieDetails() {
@@ -17,9 +18,8 @@ export function MovieDetails() {
   // llamada asíncrona, para traer pelicula con identificador "movieId" del servidor.
   useEffect(() => {
     setIsLoading(true); // para spinner
-
     get("/movie/" + movieId).then((data) => {
-      setIsLoading(false); // cdo se terminó la carga de la pelicula » setIsLoading es false.
+      setIsLoading(false); // cdo se terminó la carga de la pelicula.
       setMovie(data);
     });
   }, [movieId]);
@@ -29,6 +29,7 @@ export function MovieDetails() {
   }
 
   const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+  const imdbUrl = "https://www.imdb.com/title/" + movie.imdb_id;
   return (
     <div className={styles.detailsContainer}>
       <img
@@ -41,13 +42,28 @@ export function MovieDetails() {
           <strong>Title: </strong> {movie.title}
         </p>
         <p>
+          <strong>Release: </strong> {movie.release_date}
+        </p>
+        <p>
           <strong>Genre: </strong>
-          {movie.genres.map((genre) => genre.name).join(", ")}
+          {movie.genres.map((genre) => genre.name).join(", ")}.
           {/* 👆convertimos el arreglo de objetos a un arreglo de texto */}
           {/* si concateno y no utilizo .join  » me agrega una coma al final */}
         </p>
         <p>
           <strong>Description:</strong> {movie.overview}
+        </p>
+        <p>
+          <a href={movie.homepage} target="_blank" rel="noreferrer">
+            {/* {movie.homepage} */} {/* no se ve bien en mobile */}
+            <strong>Homepage</strong>
+          </a>
+        </p>
+        <p>
+          <a href={imdbUrl} target="_blank" rel="noreferrer">
+            {/* {imdbUrl} */}
+            <strong>IMDB</strong>
+          </a>
         </p>
       </div>
     </div>

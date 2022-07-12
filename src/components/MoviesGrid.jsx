@@ -1,9 +1,9 @@
-// us snippet
+import styles from "./MoviesGrid.module.css";
 import { useEffect, useState } from "react";
 import { get } from "../utils/httpClient";
 import { MovieCard } from "./MovieCard";
-import styles from "./MoviesGrid.module.css";
 import { Spinner } from "./Spinner";
+import { useQuery } from "../hooks/useQuery";
 
 /* componente para hacer la grilla.
 export function MoviesGrid() {
@@ -11,8 +11,8 @@ export function MoviesGrid() {
     <ul className={styles.moviesGrid}>
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </ul>
+        ))}
+        </ul>
   );
 } */
 
@@ -20,28 +20,38 @@ export function MoviesGrid() {
 export function MoviesGrid() {
   /* // let movies = [];
   const moviesState = useState([]);
-
+  
   const movies = moviesState[0];
   const setMovies = moviesState[1];
   const [movies, setMovies] = moviesState; */
 
+  // us snippet
+  const [movies, setMovies] = useState([]);
   // 👇Estado para ver si la película está cargando, y la función para setear dicho estado.
   const [isLoading, setIsLoading] = useState(true);
   // 👆El estado inicial de isLoading es true (cdo se cargue el componente (en el get de useEffect) » la película va a estar cargando).
-  const [movies, setMovies] = useState([]);
 
-  // llamada asíncrona para traer las películas del servidor
+  // const location = useLocation();
+  const query = useQuery();
+  const search = query.get("search");
+
+  // llamada asíncrona para traer las películas del servidor.
   useEffect(() => {
     setIsLoading(true); // para el spinner
 
     // if (!movies || movies.length === 0) {
-    get("/discover/movie").then((data) => {
+    // operador ternario (hacer uno u otro)
+    const searchUrl = search
+      ? "/search/movie?query=" + search
+      : "/discover/movie";
+    // get("/discover/movie").then((data) => {
+    get(searchUrl).then((data) => {
       setMovies(data.results);
-      setIsLoading(false); // cdo se terminó de cargar » setIsLoading es false.
+      setIsLoading(false); // cdo se terminó de cargar movies
     });
     // }
     // }, [movies]);
-  }, []);
+  }, [search]); // si cambia search se vuelve a ejecutar // es un arreglo de dependencias el último array
 
   if (isLoading) {
     return <Spinner />;
