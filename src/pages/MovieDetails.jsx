@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { get } from "../utils/httpClient";
 import styles from "./MovieDetails.module.css";
 
+// componente para mostrar detalles de la película.
 export function MovieDetails() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);

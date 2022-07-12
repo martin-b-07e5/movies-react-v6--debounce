@@ -26,9 +26,12 @@ export function MoviesGrid() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
+    // if (!movies || movies.length === 0) {
     get("/discover/movie").then((data) => {
       setMovies(data.results);
     });
+    // }
+    // }, [movies]);
   }, []);
   return (
     <ul className={styles.moviesGrid}>

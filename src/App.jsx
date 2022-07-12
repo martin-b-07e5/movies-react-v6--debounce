@@ -2,14 +2,12 @@
 // https://reactrouter.com/docs/en/v6/getting-started/overview#configuring-routes
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-// 👇importamos css y componentes.
 import styles from "./App.module.css";
 import { MovieDetails } from "./pages/MovieDetails";
 import { LandingPage } from "./pages/LandingPage"; // before MoviesGrid
 import { MyNavBarComponent } from "./components/MyNavBarComponent";
 import { Error404 } from "./pages/Error404";
 
-// componente de inicio de mi aplicación
 export function App() {
   return (
     <Router className="App">
@@ -28,7 +26,7 @@ export function App() {
           <Route path="/contactUs" element={<h4>contactUs</h4>} />
           <Route path="*" element={<Error404 />} />
 
-          {/* 👇usamos el componente (cdo HACEMOS CLICK en una movie)*/}
+          {/* 👇usamos el COMPONENTE (cdo HACEMOS CLICK en una movie)*/}
           {/* al path le pasamos un parametro (:movieId) que es dinámico 
                 y lo capturamos en MovieDetails*/}
           <Route path="/movies/:movieId" element={<MovieDetails />} />

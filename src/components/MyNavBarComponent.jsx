@@ -9,15 +9,15 @@ export function MyNavBarComponent() {
           <li>
             <Link to="/aboutUs">About us</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="*">error_404</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="contactUs">contact Us</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/moviesx">moviesx</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>

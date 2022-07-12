@@ -12,15 +12,18 @@
 }
 
 .movieImage {
-  border-radius: 15px;
+  /* border-radius: 15px; */
+  border-radius: 10px;
 }
 .movieImage:hover {
-  opacity: 0.95;
+  /* opacity: 0.95; */
+  opacity: 0.85;
 }
 
 .movieDetails {
   font-size: 1.2rem;
-  color: antiquewhite;
+  /* color: antiquewhite; */
+  color: whitesmoke;
 }
 
 .firstItem {
