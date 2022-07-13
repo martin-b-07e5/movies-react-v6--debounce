@@ -10,7 +10,7 @@ import { useQuery } from "../hooks/useQuery";
 // rf snippet
 export function Search() {
   const query = useQuery();
-  const search = query.get("search");
+  const search = query.get("search"); // la primera vez va a null.
 
   // us snippet
   const [searchText, setSearchText] = useState("");

@@ -51,6 +51,9 @@ export function MovieDetails() {
           {/* si concateno y no utilizo .join  » me agrega una coma al final */}
         </p>
         <p>
+          <strong>IMDb RATING:</strong> {movie.vote_average}
+        </p>
+        <p>
           <strong>Description:</strong> {movie.overview}
         </p>
         <p>

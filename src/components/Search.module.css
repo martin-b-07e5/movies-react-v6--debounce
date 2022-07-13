@@ -5,12 +5,12 @@
 }
 
 .searchBox {
-  /* margin: 0; */
   position: relative;
 }
 
 .searchButton {
-  margin: 2px;
+  /* icon */
+  padding-top: 3px;
   position: absolute;
   right: 0;
   top: 0;
@@ -22,8 +22,15 @@
 }
 
 .searchInput {
-  /* margin: 0; */
   height: 30px;
   border-radius: 5px;
   padding: 2px 35px 2px 5px;
+  border: 1px solid magenta;
+}
+
+.searchInput:focus,
+.searchButton:focus {
+  outline: none;
+  border: 1px solid magenta;
+  box-shadow: 0 0 5px magenta;
 }
