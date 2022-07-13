@@ -5,12 +5,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useQuery } from "../hooks/useQuery";
 
-// el componente "Search" carga un input donde se hace la busqueda de las pelis.
-// siempre que usamos un input » ponerlo adentro de un form
+// siempre que usamos un input » ponerlo adentro de un form » enter works
 // rf snippet
 export function Search() {
   const query = useQuery();
-  const search = query.get("search"); // la primera vez va a null.
+  const search = query.get("search"); // la primera vez es null.
 
   // us snippet
   const [searchText, setSearchText] = useState("");
