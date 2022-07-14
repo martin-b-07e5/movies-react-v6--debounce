@@ -9,36 +9,25 @@ import { useQuery } from "../hooks/useQuery";
 export function Search() {
   const query = useQuery();
   const search = query.get("search"); // la primera vez es null.
-
   // 👇us (useState) snippet.
   const [searchText, setSearchText] = useState("");
-
   // https://reactrouter.com/docs/en/v6/hooks/use-navigate
   // 👇hook para cambio de ruta en url
   const navigate = useNavigate();
-  //
-  // 👇------------------------------------------------
-  // NO PUEDO HACER FUCIONAR ESTO
-  /* const [isValid, setIsValid] = useState(word.length > 2);
-  
-  const handleChange = ({ target: { value } }) => {
-    // setSearch(value);
-    setIsValid(value.length > 2);
-  }; */
-  // 👆------------------------------------------------
-  //
-  /* si cambia la busqueda » modificamos el input
-  » ponemos el que vino por la ruta
+  // ----------------------------
+  // 👇El estado inicial de isValid es true (cdo se cargue el componente
+  const [isValid, setIsValid] = useState(true);
+  //  (en useEffect) si la busqueda tiene mas de x characters »
+  // » setIsValid(false) para deshabilitar btn en form.
+  // ----------------------------
+  /* si cambia la busqueda » modificamos el input  » ponemos el que vino por la ruta
   este efecto se ejecuta siempre y cdo haya un cambio en el search
   ue (useEffect) snippets */
   useEffect(() => {
     if (search != null) {
-      // console.log(search);
-      // console.log(search.length);
-      if (search.length > 3) {
-        // console.log(search);
-        // console.log(search.length);
-        setSearchText(search || ""); // Al principio el search es null » Sin el OR no funciona.
+      setSearchText(search || ""); // Al principio el search es null » Sin el OR no funciona.
+      if (search.length > 1) {
+        setIsValid(false); // cdo search > x
       }
     }
   }, [search]);
@@ -62,7 +51,7 @@ export function Search() {
         <button
           className={styles.searchButton}
           type="submit"
-          // disabled={!isValid}
+          disabled={!isValid}
         >
           <FaSearch size={20} />
         </button>

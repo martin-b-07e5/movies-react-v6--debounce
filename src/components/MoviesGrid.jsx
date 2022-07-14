@@ -18,14 +18,15 @@ export function MoviesGrid() {
 
 // https://developers.themoviedb.org/3/getting-started/authentication
 export function MoviesGrid() {
-  /* // let movies = [];
+  /* como funciona useState([])
+  // let movies = [];
   const moviesState = useState([]);
   
   const movies = moviesState[0];
   const setMovies = moviesState[1];
   const [movies, setMovies] = moviesState; */
 
-  // us snippet
+  // us (useState) snippet
   const [movies, setMovies] = useState([]);
   // 👇Estado para ver si la película está cargando, y la función para setear dicho estado.
   const [isLoading, setIsLoading] = useState(true);
@@ -37,17 +38,17 @@ export function MoviesGrid() {
 
   // llamada asíncrona para traer las películas del servidor.
   useEffect(() => {
-    // if (!search || search.length === 0 || search.length > 1) {
-    setIsLoading(true); // para el spinner
-    // operador ternario (hacer uno u otro)
-    const searchUrl = search
-      ? "/search/movie?query=" + search
-      : "/discover/movie";
-    get(searchUrl).then((data) => {
-      setMovies(data.results);
-      setIsLoading(false); // cdo se terminó de cargar movies(para el spinner)
-    });
-    // }
+    if (!search || search.length === 0 || search.length > 1) {
+      setIsLoading(true); // para el spinner
+      // operador ternario (hacer uno u otro)
+      const searchUrl = search
+        ? "/search/movie?query=" + search
+        : "/discover/movie";
+      get(searchUrl).then((data) => {
+        setMovies(data.results);
+        setIsLoading(false); // cdo se terminó de cargar movies(para el spinner)
+      });
+    }
   }, [search]); // si cambia search se vuelve a ejecutar // es un arreglo de dependencias el último array
 
   if (isLoading) {
