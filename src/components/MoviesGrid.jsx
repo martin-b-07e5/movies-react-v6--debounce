@@ -37,17 +37,17 @@ export function MoviesGrid() {
 
   // llamada asíncrona para traer las películas del servidor.
   useEffect(() => {
-    if (!search || search.length === 0 || search.length > 2) {
-      setIsLoading(true); // para el spinner
-      // operador ternario (hacer uno u otro)
-      const searchUrl = search
-        ? "/search/movie?query=" + search
-        : "/discover/movie";
-      get(searchUrl).then((data) => {
-        setMovies(data.results);
-        setIsLoading(false); // cdo se terminó de cargar movies(para el spinner)
-      });
-    }
+    // if (!search || search.length === 0 || search.length > 1) {
+    setIsLoading(true); // para el spinner
+    // operador ternario (hacer uno u otro)
+    const searchUrl = search
+      ? "/search/movie?query=" + search
+      : "/discover/movie";
+    get(searchUrl).then((data) => {
+      setMovies(data.results);
+      setIsLoading(false); // cdo se terminó de cargar movies(para el spinner)
+    });
+    // }
   }, [search]); // si cambia search se vuelve a ejecutar // es un arreglo de dependencias el último array
 
   if (isLoading) {
