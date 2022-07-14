@@ -9,8 +9,17 @@ import { useQuery } from "../hooks/useQuery";
 export function Search() {
   const query = useQuery();
   const search = query.get("search"); // la primera vez es null.
-  // 👇us (useState) snippet.
+  // ----------------------------
+  /* 💡como funciona useState([])
+  const searchState = useState([]);
+
+  const searchText = searchState[0];
+  const setSearchText = searchState[1];
+  const [searchText, setSearchText] = searchState;
+   */
   const [searchText, setSearchText] = useState("");
+  // 👆us (useState) snippet.
+  // ----------------------------
   // https://reactrouter.com/docs/en/v6/hooks/use-navigate
   // 👇hook para cambio de ruta en url
   const navigate = useNavigate();

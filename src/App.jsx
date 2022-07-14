@@ -13,6 +13,7 @@ export function App() {
     <Router className="App">
       <header>
         {<MyNavBarComponent />}
+
         <Link to="/">
           <h1 className={styles.title}>Movies</h1>
         </Link>

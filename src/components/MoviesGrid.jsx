@@ -18,7 +18,7 @@ export function MoviesGrid() {
 
 // https://developers.themoviedb.org/3/getting-started/authentication
 export function MoviesGrid() {
-  /* como funciona useState([])
+  /* 💡como funciona useState([])
   // let movies = [];
   const moviesState = useState([]);
   
