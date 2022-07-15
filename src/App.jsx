@@ -23,9 +23,6 @@ export function App() {
           <Route path="/" element={<LandingPage />} />
           {/* <Route path="/moviesx" element={<LandingPage />} /> */}
           <Route path="/tp4-react" element={<LandingPage />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
-          <Route path="/contactUs" element={<h4>contactUs</h4>} />
-          <Route path="*" element={<Error404 />} />
 
           {/* 👇usamos el COMPONENTE (cdo HACEMOS CLICK en una movie)*/}
           {/* al path le pasamos un parametro (:movieId) que es dinámico 
@@ -33,6 +30,10 @@ export function App() {
           {/* "movieId" es el identificador de la película */}
           {/* https://reactrouter.com/docs/en/v6/hooks/use-params */}
           <Route path="/movies/:movieId" element={<MovieDetails />} />
+
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/contactUs" element={<h4>contactUs</h4>} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </main>
     </Router>

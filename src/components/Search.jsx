@@ -60,7 +60,7 @@ export function Search() {
         <button
           className={styles.searchButton}
           type="submit"
-          disabled={!isValid}
+          disabled={!isValid} // lo comenté por funcionalidad al probar app
         >
           <FaSearch size={20} />
         </button>
