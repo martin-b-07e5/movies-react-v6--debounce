@@ -24,7 +24,8 @@ export function MoviesGrid() {
   const [isLoading, setIsLoading] = useState(true);
   // 👆El estado inicial de isLoading es true (cdo se cargue
   //  el componente (en el get de useEffect) » la película va a estar cargando).
-  const [page, setPage] = useState(1); // trabajando s/esto
+  const [page, setPage] = useState(1); // 👷trabajando s/esto
+  const [hasMore, setHasMore] = useState(true);
 
   // const location = useLocation();
   // capturamos lo que pusimo en el search, de la url
@@ -39,25 +40,27 @@ export function MoviesGrid() {
   // https://developers.themoviedb.org/3/search/search-movies
   // llamada asíncrona para traer las películas del servidor.
   useEffect(() => {
-    // este if es para que busque solo si hay mas de x caracteres
-    // if (!search || search.length === 0 || search.length > 1) {
-    setIsLoading(true); // para el spinner
-    // operador ternario (hacer uno u otro)
-    const searchUrl = search
-      ? "/search/movie?query=" + search + "&page=" + page // Buscamos las que coincidan con la condición de busqueda
-      : "/discover/movie?page=" + page;
+    // este if es para que, busque solo si hay mas de x caracteres.
+    if (!search || search.length === 0 || search.length > 1) {
+      setIsLoading(true); // para el spinner
+      // operador ternario (hacer uno u otro)
+      const searchUrl = search
+        ? "/search/movie?query=" + search + "&page=" + page // Buscamos las que coincidan con la condición de busqueda
+        : "/discover/movie?page=" + page;
 
-    // si hay un cambio » ejecutamos una busqueda
-    // 💡💡💡searchUrl es el "argumento" a que le pasamos
-    //  a la función get que tiene el "parametro" path
-    get(searchUrl).then((data) => {
-      // setMovies(data.results);
-      setMovies((prevMovies) => prevMovies.concat(data.results));
-      setIsLoading(false); // cdo se terminó de cargar movies(p/ spinner)
-    });
-    // }
-  }, [search, page]); // si cambia search se vuelve a ejecutar el efecto // es un arreglo de dependencias el último array
+      // si hay un cambio » ejecutamos una busqueda
+      // 💡💡💡searchUrl es el "argumento" a que le pasamos
+      //  a la función get que tiene el "parametro" path
+      get(searchUrl).then((data) => {
+        // setMovies(data.results);  // 👇p/que no sobreescriba
+        setMovies((prevMovies) => prevMovies.concat(data.results));
+        setHasMore(data.page < data.total_pages); // pregunto si hay mas pages
+        setIsLoading(false); // cdo se terminó de cargar movies(p/ spinner)
+      });
+    }
+  }, [search, page]); // si cambia el search, o cambia la pagina » (lo de arriba )se vuelve a ejecutar el efecto // es un arreglo de dependencias el último array
 
+  // lo metimos en el InfiniteScroll como una propiedad
   // if (isLoading) {
   //   return <Spinner />;
   // }
@@ -65,11 +68,12 @@ export function MoviesGrid() {
   return (
     <InfiniteScroll
       dataLength={movies.length}
+      // hasMore={true}
+      hasMore={hasMore} // 25'17-p4
       // 👇siempre que actualizamos el estado, a partir de un estado anterior »
       // » usar una función. (no usar "page" en este caso)
       // Porque la actualización se hace de forma asíncrona » puede dar errores.
       next={() => setPage((prevPage) => prevPage + 1)} // le pasamos una función
-      hasMore={true} // por ahora en true. Después lo calculamos dinamicamente según la información que tengamos.
       loader={<Spinner />}
     >
       <ul className={styles.moviesGrid}>
