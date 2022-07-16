@@ -40,22 +40,22 @@ export function MoviesGrid() {
   // llamada asíncrona para traer las películas del servidor.
   useEffect(() => {
     // este if es para que busque solo si hay mas de x caracteres
-    if (!search || search.length === 0 || search.length > 1) {
-      setIsLoading(true); // para el spinner
-      // operador ternario (hacer uno u otro)
-      const searchUrl = search
-        ? "/search/movie?query=" + search + "&page=" + page // Buscamos las que coincidan con la condición de busqueda
-        : "/discover/movie?page=" + page;
+    // if (!search || search.length === 0 || search.length > 1) {
+    setIsLoading(true); // para el spinner
+    // operador ternario (hacer uno u otro)
+    const searchUrl = search
+      ? "/search/movie?query=" + search + "&page=" + page // Buscamos las que coincidan con la condición de busqueda
+      : "/discover/movie?page=" + page;
 
-      // si hay un cambio » ejecutamos una busqueda
-      // 💡💡💡searchUrl es el "argumento" a que le pasamos
-      //  a la función get que tiene el "parametro" path
-      get(searchUrl).then((data) => {
-        // setMovies(data.results);
-        setMovies((prevMovies) => prevMovies.concat(data.results));
-        setIsLoading(false); // cdo se terminó de cargar movies(p/ spinner)
-      });
-    }
+    // si hay un cambio » ejecutamos una busqueda
+    // 💡💡💡searchUrl es el "argumento" a que le pasamos
+    //  a la función get que tiene el "parametro" path
+    get(searchUrl).then((data) => {
+      // setMovies(data.results);
+      setMovies((prevMovies) => prevMovies.concat(data.results));
+      setIsLoading(false); // cdo se terminó de cargar movies(p/ spinner)
+    });
+    // }
   }, [search, page]); // si cambia search se vuelve a ejecutar el efecto // es un arreglo de dependencias el último array
 
   // if (isLoading) {
