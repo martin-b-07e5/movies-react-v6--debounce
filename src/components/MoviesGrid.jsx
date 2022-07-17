@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import { get } from "../utils/httpClient";
 import { MovieCard } from "./MovieCard";
 import { Spinner } from "./Spinner";
-import { useQuery } from "../hooks/useQuery";
+// import { useQuery } from "../hooks/useQuery";
 // https://www.npmjs.com/package/react-infinite-scroll-component
 import InfiniteScroll from "react-infinite-scroll-component";
 
-// componente para hacer la grilla.
-// https://developers.themoviedb.org/3/getting-started/authentication
-export function MoviesGrid() {
+/* componente para hacer la grilla.
+https://developers.themoviedb.org/3/getting-started/authentication
+destructuramos al ponerle el parametro {search},
+ que es el argumento que viene desde LandingPage */
+export function MoviesGrid({ search }) {
   /* 💡como funciona useState([])
   // let movies = [];
   const moviesState = useState([]);
@@ -28,9 +30,9 @@ export function MoviesGrid() {
   const [hasMore, setHasMore] = useState(true);
 
   // const location = useLocation();
-  // capturamos lo que pusimo en el search, de la url
-  const query = useQuery();
-  const search = query.get("search"); // Si search esta vacio » llamamos a /discover/movie
+  // 👀 Ahora se lo vamos a pasar por props
+  // const query = useQuery(); // capturamos lo que pusimos en el search, de la url
+  // const search = query.get("search"); // Si search esta vacio » llamamos a /discover/movie
 
   // si cambia la pagina » quiero que se vuelva a ejecutar el efecto
 
@@ -61,9 +63,12 @@ export function MoviesGrid() {
   }, [search, page]); // si cambia el search, o cambia la pagina » (lo de arriba )se vuelve a ejecutar el efecto // es un arreglo de dependencias el último array
 
   // lo metimos en el InfiniteScroll como una propiedad
-  // if (isLoading) {
-  //   return <Spinner />;
-  // }
+  if (isLoading) {
+    //   return <Spinner />;
+    console.log(
+      "isLoadin is assigned a value but never used. » now is used 🔥"
+    );
+  }
 
   return (
     <InfiniteScroll
