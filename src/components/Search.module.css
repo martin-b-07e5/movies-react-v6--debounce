@@ -1,7 +1,6 @@
 .searchContainer {
   display: flex;
   justify-content: center;
-  /* margin-bottom: 1rem; */
 }
 
 .searchBox {
@@ -10,12 +9,11 @@
 
 .searchButton {
   /* icon */
-  padding-top: 3px;
   position: absolute;
-  right: 0;
+  right: 8px;
   top: 0;
-  cursor: pointer;
   height: 100%;
+  color: black;
 
   border: none;
   background: none;

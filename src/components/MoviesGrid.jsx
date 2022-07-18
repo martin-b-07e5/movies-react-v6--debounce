@@ -43,7 +43,7 @@ export function MoviesGrid({ search }) {
   // llamada asíncrona para traer las películas del servidor.
   useEffect(() => {
     // este if es para que, busque solo si hay mas de x caracteres.
-    if (!search || search.length === 0 || search.length > 1) {
+    if (!search || search.length === 0 || search.length > 2) {
       setIsLoading(true); // para el spinner
       // operador ternario (hacer uno u otro)
       const searchUrl = search
@@ -63,12 +63,10 @@ export function MoviesGrid({ search }) {
   }, [search, page]); // si cambia el search, o cambia la pagina » (lo de arriba )se vuelve a ejecutar el efecto // es un arreglo de dependencias el último array
 
   // lo metimos en el InfiniteScroll como una propiedad
-  if (isLoading) {
-    //   return <Spinner />;
-    console.log(
-      "isLoadin is assigned a value but never used. » now is used 🔥"
-    );
-  }
+  // if (isLoading) {
+  //   return <Spinner />;
+  // console.log("isLoadin is assigned a value but never used.🔥");
+  // }
 
   return (
     <InfiniteScroll
