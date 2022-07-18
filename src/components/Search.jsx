@@ -21,10 +21,12 @@ export function Search() {
           type="text"
           placeholder="input 2 or more characters"
           aria-label="Search Movies"
-          // value={search}
-          value={search || ""}
+          autoFocus={true}
+          // value={search || ""}
+          // Si search es null o undefined, agarre "" por defecto
+          value={search ?? ""}
           onChange={(e) => {
-            const value = e.target.value;
+            const value = encodeURIComponent(e.target.value);
             navigate("/?search=" + value);
           }}
         />
