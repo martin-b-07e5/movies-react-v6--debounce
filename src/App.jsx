@@ -24,6 +24,7 @@ export function App() {
           {/* <Route path="/moviesx" element={<LandingPage />} /> */}
           <Route path="/tp4-react" element={<LandingPage />} />
           <Route path="/tp4-react-v5" element={<LandingPage />} />
+          <Route path="/tp4-react-v6" element={<LandingPage />} />
 
           {/* 👇usamos el COMPONENTE (cdo HACEMOS CLICK en una movie)*/}
           {/* al path le pasamos un parametro (:movieId) que es dinámico 
