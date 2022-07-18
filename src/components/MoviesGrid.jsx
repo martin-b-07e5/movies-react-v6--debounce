@@ -6,6 +6,7 @@ import { Spinner } from "./Spinner";
 // import { useQuery } from "../hooks/useQuery";
 // https://www.npmjs.com/package/react-infinite-scroll-component
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Empty } from "./Empty";
 
 /* componente para hacer la grilla.
 https://developers.themoviedb.org/3/getting-started/authentication
@@ -67,6 +68,10 @@ export function MoviesGrid({ search }) {
   //   return <Spinner />;
   // console.log("isLoadin is assigned a value but never used.🔥");
   // }
+
+  if (!isLoading && movies.length === 0) {
+    return <Empty />;
+  }
 
   return (
     <InfiniteScroll

@@ -18,8 +18,10 @@ export function Search() {
       <div className={styles.searchBox}>
         <input
           className={styles.searchInput}
-          type="search"
+          type="text"
           placeholder="input 2 or more characters"
+          aria-label="Search Movies"
+          // value={search}
           value={search || ""}
           onChange={(e) => {
             const value = e.target.value;
