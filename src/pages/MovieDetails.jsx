@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // esto es un hook
 import { get } from "../utils/httpClient";
 import { Spinner } from "../components/Spinner";
+import { getMovieImg } from "../utils/getMovieImg";
 // import { useQuery } from "../hooks/useQuery";
 
 // componente para mostrar detalles de la película.
@@ -28,7 +29,8 @@ export function MovieDetails() {
     return <Spinner />;
   }
 
-  const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+  // const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+  const imageUrl = getMovieImg(movie.poster_path, 500);
   const imdbUrl = "https://www.imdb.com/title/" + movie.imdb_id;
   return (
     <div className={styles.detailsContainer}>
