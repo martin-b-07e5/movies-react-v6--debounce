@@ -1,8 +1,10 @@
+import styles from "./ErrorPage.module.css";
+
 export function ErrorPage() {
   return (
-    <main>
-      <h1>404 error</h1>
-      <p>Recurso no encontrado</p>
+    <main className={styles.detailsContainer}>
+      <h1 className={styles.detailsContainer}>404 error</h1>
+      <p className={styles.detailsContainer}>Recurso no encontrado</p>
     </main>
   );
 }
