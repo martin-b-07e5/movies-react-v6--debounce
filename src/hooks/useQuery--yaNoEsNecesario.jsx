@@ -7,3 +7,5 @@ import { useLocation } from "react-router-dom";
 export function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
+// .search me trae lo que está en la url
+// eg: ?search=batman vs superman
