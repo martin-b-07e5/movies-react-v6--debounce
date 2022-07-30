@@ -1,8 +1,8 @@
+// import { useQuery } from "../hooks/useQuery";
+import { useSearchParams } from "react-router-dom";
 import { Search } from "../components/Search";
 import { MoviesGrid } from "../components/MoviesGrid";
 import { useDebounce } from "../hooks/useDebounce";
-// import { useQuery } from "../hooks/useQuery";
-import { useSearchParams } from "react-router-dom";
 
 export function LandingPage() {
   // const query = useQuery();

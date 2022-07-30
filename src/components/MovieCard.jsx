@@ -12,6 +12,7 @@ export function MovieCard({ movie }) {
   //   ? "https://image.tmdb.org/t/p/w300" + movie.poster_path
   //   : placeholder;
   const imageUrl = getMovieImg(movie.poster_path, 300);
+
   return (
     <li className={styles.movieCard}>
       <Link to={"/movies/" + movie.id}>
