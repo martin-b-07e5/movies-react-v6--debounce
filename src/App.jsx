@@ -21,10 +21,6 @@ export function App() {
       <main>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          {/* <Route path="/moviesx" element={<LandingPage />} /> */}
-          <Route path="/tp4-react" element={<LandingPage />} />
-          <Route path="/tp4-react-v5" element={<LandingPage />} />
-          <Route path="/tp4-react-v6" element={<LandingPage />} />
           <Route path="/movies-react-v6--debounce" element={<LandingPage />} />
 
           {/* 👇usamos el COMPONENTE (cdo HACEMOS CLICK en una movie)*/}
