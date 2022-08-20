@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/movies-react-v6--debounce/static/css/main.116b1318.css",
-    "main.js": "/movies-react-v6--debounce/static/js/main.39f4dec7.js",
+    "main.js": "/movies-react-v6--debounce/static/js/main.5c9203dd.js",
     "index.html": "/movies-react-v6--debounce/index.html",
     "main.116b1318.css.map": "/movies-react-v6--debounce/static/css/main.116b1318.css.map",
-    "main.39f4dec7.js.map": "/movies-react-v6--debounce/static/js/main.39f4dec7.js.map"
+    "main.5c9203dd.js.map": "/movies-react-v6--debounce/static/js/main.5c9203dd.js.map"
   },
   "entrypoints": [
     "static/css/main.116b1318.css",
-    "static/js/main.39f4dec7.js"
+    "static/js/main.5c9203dd.js"
   ]
 }
