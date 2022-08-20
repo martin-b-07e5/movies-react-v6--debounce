@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/tp4-react-v6/static/css/main.116b1318.css",
-    "main.js": "/tp4-react-v6/static/js/main.39f4dec7.js",
-    "index.html": "/tp4-react-v6/index.html",
-    "main.116b1318.css.map": "/tp4-react-v6/static/css/main.116b1318.css.map",
-    "main.39f4dec7.js.map": "/tp4-react-v6/static/js/main.39f4dec7.js.map"
+    "main.css": "/movies-react-v6--debounce/static/css/main.116b1318.css",
+    "main.js": "/movies-react-v6--debounce/static/js/main.39f4dec7.js",
+    "index.html": "/movies-react-v6--debounce/index.html",
+    "main.116b1318.css.map": "/movies-react-v6--debounce/static/css/main.116b1318.css.map",
+    "main.39f4dec7.js.map": "/movies-react-v6--debounce/static/js/main.39f4dec7.js.map"
   },
   "entrypoints": [
     "static/css/main.116b1318.css",
