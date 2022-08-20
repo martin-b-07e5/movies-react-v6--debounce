@@ -22,7 +22,7 @@ export function Search() {
         <input
           className={styles.searchInput}
           type="text"
-          placeholder="input 2 or more characters"
+          placeholder="input 3 or more characters"
           aria-label="Search Movies"
           autoFocus={true}
           // value={search || ""}
