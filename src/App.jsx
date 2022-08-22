@@ -22,7 +22,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/movies-react-v6--debounce" element={<LandingPage />} />
-          <Route path="react2022--movies-react-v6--debounce" element={<LandingPage />} />
+          <Route path="/react2022--movies-react-v6--debounce" element={<LandingPage />} />
 
           {/* 👇usamos el COMPONENTE (cdo HACEMOS CLICK en una movie)*/}
           {/* al path le pasamos un parametro (:movieId) que es dinámico 
