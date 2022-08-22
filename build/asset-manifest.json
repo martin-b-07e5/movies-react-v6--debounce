@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react2022--movies-react-v6--debounce/static/css/main.116b1318.css",
-    "main.js": "/react2022--movies-react-v6--debounce/static/js/main.5c9203dd.js",
+    "main.js": "/react2022--movies-react-v6--debounce/static/js/main.95d3accb.js",
     "index.html": "/react2022--movies-react-v6--debounce/index.html",
     "main.116b1318.css.map": "/react2022--movies-react-v6--debounce/static/css/main.116b1318.css.map",
-    "main.5c9203dd.js.map": "/react2022--movies-react-v6--debounce/static/js/main.5c9203dd.js.map"
+    "main.95d3accb.js.map": "/react2022--movies-react-v6--debounce/static/js/main.95d3accb.js.map"
   },
   "entrypoints": [
     "static/css/main.116b1318.css",
-    "static/js/main.5c9203dd.js"
+    "static/js/main.95d3accb.js"
   ]
 }
